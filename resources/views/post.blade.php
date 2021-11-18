@@ -4,7 +4,10 @@
     <article>
         <h3> {{ $post->title }} </h3>
         <h6 class="mb-4">
-            by. <a class="text-decoration-none" href="#">{{ $post->user->name }}</a> in <a class="text-decoration-none"
+            by. <a class="text-decoration-none"
+                href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+            in
+            <a class="text-decoration-none"
                 href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
         </h6>
         {!! $post->body !!}
