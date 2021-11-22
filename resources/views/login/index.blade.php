@@ -5,8 +5,21 @@
     <main class="form-signin">
         <div class="row justify-content-center" style="margin-top: 125px !important">
             <div class="col-lg-5">
+
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Congratulation!</strong> {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+
+                <script>
+                    $(".alert").alert();
+                </script>
                 <h1 class="h3 mb-3 fw-normal text-center fw-bold">Please Log in</h1>
-                <form>
+                <form action="/login" method="post">
+
                     <div class="form-floating">
                         <input type="email" name="email" class="form-control rounded-0 rounded-top" id="email"
                             placeholder="name@example.com">
