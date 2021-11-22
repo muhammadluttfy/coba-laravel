@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'data-analyst'
         ]);
 
-        Post::factory(20)->create();
+        Post::factory(40)->create();
 
         // Post::create([
         //     'title' => 'Judul Pertama',

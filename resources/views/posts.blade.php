@@ -1,7 +1,27 @@
 @extends("layouts.main")
 
 @section('container')
-    <h2 class="mb-4"> {{ $title }} </h2>
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-6">
+            <h2 class="mb-3 text-center"> {{ $title }} </h2>
+
+            <form action="/posts">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+
+                @if (request('author'))
+                    <input type="hidden" name="author" value="{{ request('author') }}">
+                @endif
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search" value="{{ request('search') }}"
+                        placeholder="Search posts">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     @if ($posts->count())
 
@@ -14,8 +34,8 @@
                 </a>
                 <p>
                     <a class="text-decoration-none"
-                        href="/authors/{{ $posts[0]->author->username }}">{{ $posts[0]->author->username }}</a> in
-                    <a class="text-decoration-none" href="/categories/{{ $posts[0]->category->slug }}">
+                        href="/posts?author={{ $posts[0]->author->username }}">{{ $posts[0]->author->username }}</a> in
+                    <a class="text-decoration-none" href="/posts?category={{ $posts[0]->category->slug }}">
                         {{ $posts[0]->category->name }} </a> |
                     <small class="card-text"><small class="text-muted">Last updated
                             {{ $posts[0]->created_at->diffForHumans() }} </small>
@@ -26,54 +46,43 @@
 
             </div>
         </div>
-    @else
-        <p class="text-center fs-4 text-danger">No post found.</p>
 
-    @endif
+        <div class="row">
 
-    <div class="row">
-
-        @foreach ($posts->skip(1) as $post)
-
-            <div class="col-sm-12 col-md-4 mb-3">
-                <div class="card">
-                    <div class="position-absolute py-2 px-3 text-white" style="background-color: rgba(0, 0, 0, 0.7)">
-                        <a class="text-white text-decoration-none"
-                            href="/categories/{{ $post->category->slug }} ">{{ $post->category->name }}</a>
-                    </div>
-                    <img src="https://source.unsplash.com/1200x550?{{ $post->category->name }}" class="card-img-top"
-                        alt="{{ $post->title }}">
-                    <div class="card-body">
-                        <a class="text-decoration-none text-dark" href="/posts/{{ $post->slug }}">
-                            <h5 class="card-title"> {{ $post->title }} </h5>
-                        </a>
-                        <p>
-                            <a class="text-decoration-none"
-                                href="/authors/{{ $post->author->username }}">{{ $post->author->username }}</a> |
-                            <small> {{ $post->created_at->diffForHumans() }} </small>
-                        </p>
-                        <p class="card-text"> {{ $post->excerpt }} </p>
-                        <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more</a>
+            @foreach ($posts->skip(1) as $post)
+                <div class="col-sm-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="position-absolute py-2 px-3 text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+                            <a class="text-white text-decoration-none"
+                                href="/posts?category={{ $post->category->slug }} ">{{ $post->category->name }}</a>
+                        </div>
+                        <img src="https://source.unsplash.com/1200x550?{{ $post->category->name }}"
+                            class="card-img-top" alt="{{ $post->title }}">
+                        <div class="card-body">
+                            <a class="text-decoration-none text-dark" href="/posts/{{ $post->slug }}">
+                                <h5 class="card-title"> {{ $post->title }} </h5>
+                            </a>
+                            <p>
+                                <a class="text-decoration-none"
+                                    href="/posts?author={{ $post->author->username }}">{{ $post->author->username }}</a>
+                                |
+                                <small> {{ $post->created_at->diffForHumans() }} </small>
+                            </p>
+                            <p class="card-text"> {{ $post->excerpt }} </p>
+                            <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
-            {{-- <article class="mb-4 border-bottom pb-4">
-                <h3>
-                    <a class="text-decoration-none" href="/posts/{{ $post->slug }} ">{{ $post->title }}</a>
-                </h3>
-                <h6 class="mb-4">
-                    Ditulis oleh : <a class="text-decoration-none" href="/authors/{{ $post->author->username }}">
-                        {{ $post->author->name }} </a> in
-                    <a class="text-decoration-none"
-                        href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
-                </h6>
-                <p>{{ $post->excerpt }}</p>
-                <a class="text-decoration-none" href="/posts/{{ $post->slug }} ">Read More..</a>
-            </article> --}}
+        </div>
 
-        @endforeach
+    @else
+        <p class="text-center fs-4 text-danger">No post found.</p>
+    @endif
 
+    <div class="d-flex float-end mb-5">
+        {{ $posts->links() }}
     </div>
 
 @endsection
