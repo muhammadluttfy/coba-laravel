@@ -8,8 +8,16 @@
                 <h6 class="mb-4">
                     <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left"></span> Manage All
                         Posts</a>
-                    <a href="" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
-                    <a href="" class="btn btn-danger"><span data-feather="trash"></span> Delete</a>
+                    <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span
+                            data-feather="edit"></span> Edit</a>
+
+                    <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                        @csrf
+
+                        @method('delete')
+                        <button class="btn btn-danger " onclick="return confirm('Are you sure?')"><span
+                                data-feather="trash"></span> Delete</button>
+                    </form>
                 </h6>
 
                 <img src="https://source.unsplash.com/1200x550?{{ $post->category->name }}" class="img-fluid rounded-1"
