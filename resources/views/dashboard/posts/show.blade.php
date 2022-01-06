@@ -20,8 +20,15 @@
                     </form>
                 </h6>
 
-                <img src="https://source.unsplash.com/1200x550?{{ $post->category->name }}" class="img-fluid rounded-1"
-                    alt="{{ $post->category->naem }}">
+                @if ($post->image)
+                    <div style="max-height: 310px; overflow: hidden">
+                        <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid rounded-1"
+                            alt="{{ $post->category->name }}">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x550?{{ $post->category->name }}" class="img-fluid rounded-1"
+                        alt="{{ $post->category->name }}">
+                @endif
 
                 <article class="my-3">
                     {!! $post->body !!}
