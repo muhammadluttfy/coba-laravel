@@ -25,6 +25,13 @@
                     <label for="slug" class="form-label">Slug</label>
                     <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug"
                         required value="{{ old('slug') }}">
+                    <div id="slugHelp" class="form-text">
+                        Tekan <code class="bg-dark text-white px-2 py-1 rounded">Tab</code> atau <code
+                            class="bg-dark text-white px-2 py-1 rounded">Enter</code>
+                        pada
+                        keyboard agar melakukan generate
+                        slug secara otomatis.
+                    </div>
                     @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
