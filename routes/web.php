@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,13 @@ use App\Http\Controllers\DashboardPostController;
 */
 
 Route::get('/', function () {
-  return view('home', [
-    "title" => "Home",
-    "active" => 'home'
+  return view('welcome', [
+    "title" => "Temukan Karir Masa Depanmu",
+    "active" => 'welcome',
+    'categories' => Category::all(),
+    "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString(),
   ]);
-});
+})->name('welcome');
 
 Route::get('/about', function () {
   return view('about', [

@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 
-@section('container')
+@section('content')
     <div class="container">
         <div class="row justify-content-center my-3">
             <div class="col-lg-8">

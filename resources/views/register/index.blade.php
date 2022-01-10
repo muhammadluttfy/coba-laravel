@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('container')
+@section('content')
 
     <main class="form-registration">
         <div class="row justify-content-center" style="margin-top: 85px !important">

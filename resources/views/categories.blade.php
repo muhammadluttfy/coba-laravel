@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section('container')
+@section('content')
     <h2 class="mb-4">All Categories</h2>
 
     <div class="container">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('container')
+@section('content')
 
     <main class="form-signin">
         <div class="row justify-content-center" style="margin-top: 125px !important">
