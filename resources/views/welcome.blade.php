@@ -34,14 +34,14 @@
                         <!-- Fancybox -->
                         <a class="js-fancybox video-player video-player-btn media align-items-center text-dark mb-2"
                             href="javascript:;" data-hs-fancybox-options='{
-                                                                                       "src": "//youtube.com/0qisGSwZym4",
-                                                                                       "caption": "Front - Responsive Website Template",
-                                                                                       "speed": 700,
-                                                                                       "buttons": ["fullScreen", "close"],
-                                                                                       "youtube": {
-                                                                                         "autoplay": 1
-                                                                                       }
-                                                                                     }'>
+                                                                                                                   "src": "//youtube.com/0qisGSwZym4",
+                                                                                                                   "caption": "Front - Responsive Website Template",
+                                                                                                                   "speed": 700,
+                                                                                                                   "buttons": ["fullScreen", "close"],
+                                                                                                                   "youtube": {
+                                                                                                                     "autoplay": 1
+                                                                                                                   }
+                                                                                                                 }'>
                             <span class="video-player-icon shadow-soft mr-3">
                                 <i class="fa fa-play"></i>
                             </span>
@@ -75,37 +75,37 @@
 
                     <div class="js-slick-carousel slick slick-equal-height slick-gutters-3 slick-center-mode-right slick-center-mode-right-offset"
                         data-hs-slick-carousel-options='{
-                                                                                       "prevArrow": "<span class=\"fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left slick-arrow-centered-y shadow-soft rounded-circle ml-sm-n2\"></span>",
-                                                                                       "nextArrow": "<span class=\"fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right slick-arrow-centered-y shadow-soft rounded-circle mr-sm-2 mr-xl-4\"></span>",
-                                                                                       "slidesToShow": 5,
-                                                                                       "infinite": true,
-                                                                                       "responsive": [{
-                                                                                         "breakpoint": 1200,
-                                                                                           "settings": {
-                                                                                             "slidesToShow": 4
-                                                                                           }
-                                                                                         }, {
-                                                                                         "breakpoint": 992,
-                                                                                           "settings": {
-                                                                                             "slidesToShow": 3
-                                                                                           }
-                                                                                         }, {
-                                                                                         "breakpoint": 768,
-                                                                                         "settings": {
-                                                                                           "slidesToShow": 2
-                                                                                         }
-                                                                                         }, {
-                                                                                         "breakpoint": 554,
-                                                                                         "settings": {
-                                                                                           "slidesToShow": 1
-                                                                                         }
-                                                                                       }]
-                                                                                     }'>
+                                                                                                                   "prevArrow": "<span class=\"fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left slick-arrow-centered-y shadow-soft rounded-circle ml-sm-n2\"></span>",
+                                                                                                                   "nextArrow": "<span class=\"fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right slick-arrow-centered-y shadow-soft rounded-circle mr-sm-2 mr-xl-4\"></span>",
+                                                                                                                   "slidesToShow": 5,
+                                                                                                                   "infinite": true,
+                                                                                                                   "responsive": [{
+                                                                                                                     "breakpoint": 1200,
+                                                                                                                       "settings": {
+                                                                                                                         "slidesToShow": 4
+                                                                                                                       }
+                                                                                                                     }, {
+                                                                                                                     "breakpoint": 992,
+                                                                                                                       "settings": {
+                                                                                                                         "slidesToShow": 3
+                                                                                                                       }
+                                                                                                                     }, {
+                                                                                                                     "breakpoint": 768,
+                                                                                                                     "settings": {
+                                                                                                                       "slidesToShow": 2
+                                                                                                                     }
+                                                                                                                     }, {
+                                                                                                                     "breakpoint": 554,
+                                                                                                                     "settings": {
+                                                                                                                       "slidesToShow": 1
+                                                                                                                     }
+                                                                                                                   }]
+                                                                                                                 }'>
                         <!-- Article -->
                         @foreach ($categories as $category)
                             <article class="js-slide pt-2">
                                 <a class="card bg-img-hero w-100 min-h-270rem transition-3d-hover"
-                                    href="/posts?category={{ $category->slug }}"
+                                    href="/careers?category={{ $category->slug }}"
                                     style="background-image: url(/template-assets/img/400x500/img14.jpg);">
                                     <div class="card-body">
                                         <span
@@ -208,7 +208,7 @@
                             @foreach ($posts as $post)
                                 <div class="col-sm-6 col-md-4 px-2 mb-3">
                                     <!-- Card -->
-                                    <a class="card card-frame h-100" href="app-description.html">
+                                    <a class="card card-frame h-100" href="/careers/{{ $post->slug }}">
                                         <img class="card-img-top" src="template-assets/img/480x220/img1.jpg"
                                             alt="Image Description">
                                         <div class="card-body">
@@ -218,8 +218,7 @@
                                                     src="template-assets/svg/illustrations/top-vendor.svg"
                                                     alt="Image Description" title="Top Vendor" width="16">
                                             </div>
-                                            <span class="d-block text-body font-size-1">Deliver call activity and voicemails
-                                                straight to your inbox</span>
+                                            <span class="d-block text-body font-size-1">{{ $post->excerpt }}</span>
                                         </div>
                                     </a>
                                     <!-- End Card -->
@@ -235,18 +234,6 @@
         </div>
         <!-- End Apps Section -->
 
-        <!-- CTA Section -->
-        <div class="container space-bottom-2">
-            <div class="text-center py-6"
-                style="background: url(/template-assets/svg/components/abstract-shapes-19.svg) center no-repeat;">
-                <h2>Find the right learning path for you</h2>
-                <p>Answer a few questions and match your goals to our programs.</p>
-                <span class="d-block mt-5">
-                    <a class="btn btn-primary transition-3d-hover" href="#">Explore by Category</a>
-                </span>
-            </div>
-        </div>
-        <!-- End CTA Section -->
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
 

@@ -114,7 +114,16 @@
 
                             <div id="searchClassic"
                                 class="hs-unfold-content dropdown-menu w-100 shadow border-0 rounded-0 px-3 mt-0">
-                                <form class="input-group input-group-sm input-group-merge">
+                                <form action="/careers" class="input-group input-group-sm input-group-merge">
+
+                                    @if (request('category'))
+                                        <input type="hidden" name="category" value="{{ request('category') }}">
+                                    @endif
+
+                                    @if (request('author'))
+                                        <input type="hidden" name="author" value="{{ request('author') }}">
+                                    @endif
+
                                     <input type="text" class="form-control" placeholder="What do you want to learn?"
                                         aria-label="What do you want to learn?">
                                     <div class="input-group-append">
@@ -122,6 +131,7 @@
                                             <i class="fas fa-search"></i>
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -364,7 +374,16 @@
 
                             <!-- Search Form -->
                             <li class="d-none d-lg-inline-block navbar-nav-item flex-grow-1 mx-2">
-                                <form class="input-group input-group-sm input-group-merge w-75">
+                                <form action="/posts" class="input-group input-group-sm input-group-merge w-75">
+
+                                    @if (request('category'))
+                                        <input type="hidden" name="category" value="{{ request('category') }}">
+                                    @endif
+
+                                    @if (request('author'))
+                                        <input type="hidden" name="author" value="{{ request('author') }}">
+                                    @endif
+
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
                                             <i class="fa fa-search"></i>
@@ -372,6 +391,7 @@
                                     </div>
                                     <input type="text" class="form-control" placeholder="What do you want to learn?"
                                         aria-label="What do you want to learn?">
+
                                 </form>
                             </li>
                             <!-- End Search Form -->

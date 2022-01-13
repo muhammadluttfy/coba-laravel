@@ -1,0 +1,34 @@
+h1, h2, h3, h4, h5, h6 {
+  color: #34364A !important;
+}
+
+.decrtiption-heading {
+  font-size: 20px;
+  font-weight: 700 !important;
+  /* color: #1e2022; */
+  color: #34364A;
+}
+
+.description-content {
+margin-bottom: 32px;
+}
+
+.description-content h1 {
+  font-weight: 700;
+}
+.description-content h1 .number {
+  color: #22C58B !important;
+}
+.description-content h1 .year {
+  font-size: 16px !important;
+  font-weight: 400 ;
+}
+
+.salary {
+  margin-top: 16px;
+  font-size: 16px !important;
+  color: #677788;
+  font-weight: 400;
+}
+
+

@@ -2,73 +2,111 @@
 
 @section('content')
 
-    <main class="form-registration">
-        <div class="row justify-content-center" style="margin-top: 85px !important">
-            <div class="col-lg-6">
-                <h1 class="h3 mb-3 fw-normal text-center fw-bold">From Registration</h1>
-                <form action="/register" method="POST">
-                    @csrf
+    <main id="content" role="main">
+        <!-- Login Form -->
+        <div class="container space-2">
+            <form action="/register" method="POST" class="js-validate w-md-75 w-lg-50 mx-md-auto">
+                @csrf
 
-                    <div class="form-floating">
-                        <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror "
-                            id="name" placeholder="Input Your Name" required value="{{ old('name') }}">
-                        <label for="name">Name</label>
-                        @error('name')
-                            <div class="invalid-feedback mb-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                <!-- Title -->
+                <div class="mb-5 mb-md-7">
+                    <h1 class="h2 mb-0">Welcome to Front</h1>
+                    <p>Fill out the form to get started.</p>
+                </div>
+                <!-- End Title -->
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                    <label class="input-label @error('name') is-invalid @enderror" for="name">Fullname</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Input your name"
+                        aria-label="Full name" required data-msg="Please enter a valid Full name."
+                        value="{{ old('name') }}">
+
+                    @error('name')
+                        <div class="invalid-feedback mb-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <!-- End Form Group -->
+
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                    <label class="input-label @error('username') is-invalid @enderror" for="username">Email address</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                        aria-label="Username" required data-msg="Please enter a valid username."
+                        value="{{ old('username') }}">
+
+                    @error('username')
+                        <div class="invalid-feedback mb-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <!-- End Form Group -->
+
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                    <label class="input-label @error('email') is-invalid @enderror" for="email">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email address"
+                        aria-label="Email address" required data-msg="Please enter a valid email address."
+                        value="{{ old('email') }}">
+
+                    @error('email')
+                        <div class="      invalid-feedback mb-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                    <label class="input-label @error('password') is-invalid @enderror" for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="********"
+                        aria-label="********" required data-msg="Your password is invalid. Please try again.">
+
+                    @error('password')
+                        <div class="invalid-feedback mb-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <!-- End Form Group -->
+
+
+                <!-- Checkbox -->
+                <div class="js-form-message mb-5">
+                    <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+                        <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" required
+                            data-msg="Please accept our Terms and Conditions.">
+                        <label class="custom-control-label" for="termsCheckbox">
+                            <small>
+                                I agree to the
+                                <a class="link-underline" href="../pages/terms.html">Terms and Conditions</a>
+                            </small>
+                        </label>
+                    </div>
+                </div>
+                <!-- End Checkbox -->
+
+                <!-- Button -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <span class="font-size-1 text-muted">Already have an account?</span>
+                        <a class="font-size-1 font-weight-bold" href="/login">Login</a>
                     </div>
 
-                    <div class="form-floating">
-                        <input type="text" name="username"
-                            class="form-control @error('username')
-                            is-invalid
-                        @enderror "
-                            id="username" placeholder="Input Name" required value="{{ old('username') }}">
-                        <label for="username">Username</label>
-                        @error('username')
-                            <div class="invalid-feedback mb-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                    <div class="col-sm-6 text-sm-right">
+                        <button type="submit" class="btn btn-primary transition-3d-hover">Get Started</button>
                     </div>
-
-                    <div class="form-floating">
-                        <input type="email" name="email"
-                            class="form-control @error('email')
-                        is-invalid
-                    @enderror"
-                            id="email" placeholder="name@example.com" required value="{{ old('email') }}">
-                        <label for="email">Email address</label>
-                        @error('email')
-                            <div class="invalid-feedback mb-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="form-floating">
-                        <input type="password" name="password"
-                            class="form-control rounded-bottom @error('password')
-                        is-invalid
-                    @enderror"
-                            id="password" placeholder="Password" required>
-                        <label for="password">Password</label>
-                        @error('password')
-                            <div class="invalid-feedback mb-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-
-
-                    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
-                </form>
-                <small class="d-block text-center mt-3 mb-5">Already Registed ? <a href="/login">Log in
-                        Now!</a></small>
-            </div>
+                </div>
+                <!-- End Button -->
+            </form>
         </div>
+        <!-- End Login Form -->
     </main>
 
 @endsection

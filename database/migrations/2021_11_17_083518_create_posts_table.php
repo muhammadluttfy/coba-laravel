@@ -23,6 +23,8 @@ class CreatePostsTable extends Migration
       $table->string('image')->nullable();
       $table->text('excerpt');
       $table->text('body');
+      $table->text('salary');
+      $table->text('salary_source');
       $table->timestamp('published_at')->nullable();
       $table->timestamps();
     });

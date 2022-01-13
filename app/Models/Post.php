@@ -53,6 +53,16 @@ class Post extends Model
     );
   }
 
+  public function tools()
+  {
+    return $this->belongsToMany(Tool::class);
+  }
+
+  public function courses()
+  {
+    return $this->belongsToMany(Course::class);
+  }
+
   public function Category()
   {
     return $this->belongsTo(Category::class);

@@ -15,6 +15,11 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="/template-assets/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="/template-assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css">
@@ -23,12 +28,26 @@
 
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="/template-assets/css/theme.css">
+    <link rel="stylesheet" href="/template-assets/css/custom-css.css">
 </head>
 
 <body>
     @include('partials.navbar')
 
     @yield('content')
+
+    {{-- CTA Section --}}
+    <div class="container space-bottom-2">
+        <div class="text-center py-6"
+            style="background: url(/template-assets/svg/components/abstract-shapes-19.svg) center no-repeat;">
+            <h2>Find the right learning path for you</h2>
+            <p>Answer a few questions and match your goals to our programs.</p>
+            <span class="d-block mt-5">
+                <a class="btn btn-primary transition-3d-hover" href="#">Explore by Category</a>
+            </span>
+        </div>
+    </div>
+    <!-- End CTA Section -->
 
     <!-- ========== FOOTER ========== -->
     <footer class="bg-light">
@@ -510,6 +529,7 @@
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
             '<script src="/template-assets/vendor/polifills.js"><\/script>');
     </script>
+
 </body>
 
 </html>

@@ -6,7 +6,9 @@ use Illuminate\Database\Seeder;
 
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Course;
 use App\Models\Post;
+use App\Models\Tool;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +24,8 @@ class DatabaseSeeder extends Seeder
       'name' => 'Muhammad Lutfi',
       'username' => 'muhammadlutfi',
       'email' => 'muhammadlutfi3101@gmail.com',
-      'password' => bcrypt('password')
+      'password' => bcrypt('password'),
+      'is_admin' => 1,
     ]);
 
     User::create([
@@ -35,61 +38,77 @@ class DatabaseSeeder extends Seeder
     User::factory(3)->create();
 
     Category::create([
-      'name' => 'Web Programming',
-      'slug' => 'web-programming'
+      'name' => 'Web Development',
+      'slug' => 'web-development'
     ]);
 
     Category::create([
-      'name' => 'personal',
-      'slug' => 'personal'
+      'name' => 'Business',
+      'slug' => 'business'
     ]);
 
     Category::create([
-      'name' => 'UI UX Designer',
-      'slug' => 'ui-ux-designer'
+      'name' => 'Finance & Aounting',
+      'slug' => 'finance-and-accounting'
     ]);
 
     Category::create([
-      'name' => 'Data Analyst',
-      'slug' => 'data-analyst'
+      'name' => 'IT & Software',
+      'slug' => 'it-and-software'
+    ]);
+    Category::create([
+      'name' => 'Design',
+      'slug' => 'design'
+    ]);
+    Category::create([
+      'name' => 'Marketing',
+      'slug' => 'marketing'
+    ]);
+    Category::create([
+      'name' => 'Music',
+      'slug' => 'music'
     ]);
 
-    Post::factory(40)->create();
 
-    // Post::create([
-    //     'title' => 'Judul Pertama',
-    //     'slug' => 'judul-pertama',
-    //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam',
-    //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam dolores voluptatibus eius, eum delectus doloribus eligendi, accusamus, aspernatur est cupiditate veritatis molestias? Eligendi accusantium fugit officiis illo! Officia ab nihil voluptates quod recusandae eos odit ipsum ex, eius error exercitationem! Nesciunt harum at numquam veniam officia qui quis pariatur praesentium quaerat nulla cupiditate sequi eveniet provident vitae commodi obcaecati, velit enim delectus sed vel reprehenderit expedita itaque omnis! Rerum maxime magnam fugit sint cum. Magni amet maiores velit voluptate. Debitis rem ut maxime ratione perferendis est odit possimus laboriosam nesciunt quas?',
-    //     'category_id' => 1,
-    //     'user_id' => 1,
-    // ]);
+    Tool::create([
+      'name' => 'Figma',
+      'lisence' => 'Free'
+    ]);
+    Tool::create([
+      'name' => 'VS Code',
+      'lisence' => 'Free'
+    ]);
+    Tool::create([
+      'name' => 'Github',
+      'lisence' => 'Free'
+    ]);
+    Tool::create([
+      'name' => 'Chrome',
+      'lisence' => 'Free'
+    ]);
 
-    // Post::create([
-    //     'title' => 'Judul Kedua',
-    //     'slug' => 'judul-kedua',
-    //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam',
-    //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam dolores voluptatibus eius, eum delectus doloribus eligendi, accusamus, aspernatur est cupiditate veritatis molestias? Eligendi accusantium fugit officiis illo! Officia ab nihil voluptates quod recusandae eos odit ipsum ex, eius error exercitationem! Nesciunt harum at numquam veniam officia qui quis pariatur praesentium quaerat nulla cupiditate sequi eveniet provident vitae commodi obcaecati, velit enim delectus sed vel reprehenderit expedita itaque omnis! Rerum maxime magnam fugit sint cum. Magni amet maiores velit voluptate. Debitis rem ut maxime ratione perferendis est odit possimus laboriosam nesciunt quas?',
-    //     'category_id' => 1,
-    //     'user_id' => 2,
-    // ]);
 
-    // Post::create([
-    //     'title' => 'Judul Ketiga',
-    //     'slug' => 'judul-ketiga',
-    //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam',
-    //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam dolores voluptatibus eius, eum delectus doloribus eligendi, accusamus, aspernatur est cupiditate veritatis molestias? Eligendi accusantium fugit officiis illo! Officia ab nihil voluptates quod recusandae eos odit ipsum ex, eius error exercitationem! Nesciunt harum at numquam veniam officia qui quis pariatur praesentium quaerat nulla cupiditate sequi eveniet provident vitae commodi obcaecati, velit enim delectus sed vel reprehenderit expedita itaque omnis! Rerum maxime magnam fugit sint cum. Magni amet maiores velit voluptate. Debitis rem ut maxime ratione perferendis est odit possimus laboriosam nesciunt quas?',
-    //     'category_id' => 2,
-    //     'user_id' => 2,
-    // ]);
+    Course::create([
+      'name' => 'Jalur Belajar Frontend Web Developer',
+      'author' => 'Web Programming Unpas',
+      'lisence' => 'Gratis',
+      'basic_learning' => 'Youtube',
+    ]);
 
-    // Post::create([
-    //     'title' => 'Judul Keempat',
-    //     'slug' => 'judul-keempat',
-    //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam',
-    //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum asperiores architecto deleniti maiores cum voluptates officia numquam dolores voluptatibus eius, eum delectus doloribus eligendi, accusamus, aspernatur est cupiditate veritatis molestias? Eligendi accusantium fugit officiis illo! Officia ab nihil voluptates quod recusandae eos odit ipsum ex, eius error exercitationem! Nesciunt harum at numquam veniam officia qui quis pariatur praesentium quaerat nulla cupiditate sequi eveniet provident vitae commodi obcaecati, velit enim delectus sed vel reprehenderit expedita itaque omnis! Rerum maxime magnam fugit sint cum. Magni amet maiores velit voluptate. Debitis rem ut maxime ratione perferendis est odit possimus laboriosam nesciunt quas?',
-    //     'category_id' => 2,
-    //     'user_id' => 1,
-    // ]);
+    Course::create([
+      'name' => 'Mastering Laravel 8',
+      'author' => 'Buildwith Angga',
+      'lisence' => 'Berbayar',
+      'basic_learning' => 'Website',
+    ]);
+
+    Course::create([
+      'name' => 'HTML Dasar',
+      'author' => 'Dicoding Indonesia',
+      'lisence' => 'Gratis',
+      'basic_learning' => 'Website',
+    ]);
+
+    Post::factory(50)->create();
   }
 }
